@@ -20,6 +20,8 @@ def train():
     model.fit(X, y)
 
     os.makedirs("models", exist_ok=True)
+    # joblib is used to save the model to a file
+    # The model is saved in the "models" directory with the name "model.pkl"
     joblib.dump(model, "models/model.pkl")
 
     print("Model trained and saved!")
