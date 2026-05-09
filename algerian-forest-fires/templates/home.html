@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FWI Prediction</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    background: rgba(0,0,0,0.6);
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00e5ff;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+  }
+
+  input[type="submit"] {
+    background: #00e676;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  input[type="submit"]:hover {
+    background: #00c853;
+  }
+
+  label {
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>🔥 FWI Prediction</h2>
+
+  <form action="{{ url_for('predict_data') }}" method="POST">
+
+    <label>Temperature</label>
+    <input type="text" name="Temperature" required>
+
+    <label>RH</label>
+    <input type="text" name="RH" required>
+
+    <label>Rain</label>
+    <input type="text" name="Rain" required>
+
+    <label>FFMC</label>
+    <input type="text" name="FFMC" required>
+
+    <label>DMC</label>
+    <input type="text" name="DMC" required>
+
+    <label>ISI</label>
+    <input type="text" name="ISI" required>
+
+    <label>Classes</label>
+    <select name="Classes" required>
+      <option value="0">0 (No Fire)</option>
+      <option value="1">1 (Fire)</option>
+    </select>
+
+    <label>Region</label>
+    <select name="Region" required>
+      <option value="0">Region 0</option>
+      <option value="1">Region 1</option>
+    </select>
+
+    <input type="submit" value="Predict FWI">
+
+  </form>
+
+  <h2>The FWI Prediction is: {{results}}</h2>
+
+</div>
+
+</body>
+</html>
