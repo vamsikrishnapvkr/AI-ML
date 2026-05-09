@@ -152,6 +152,9 @@ project/
 │
 ├── config/
 │   └── Algerian_forest_fires_dataset_CLEANED.csv
+|
+├── templates/
+│   └── home.html
 │
 └── README.md
 ```
